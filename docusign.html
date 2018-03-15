@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>    
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="lib/angular/angular.min.js"></script> 
+ <script src="js/module/user_module.js"> </script>
+ <script src="js/controllers/docusign_Ctrl.js"> </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" type="text/javascript"></script>    
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+<style>
+#canvas {
+    width: 100%;
+    height: 400px;
+    background: #ccc;
+    position: relative;
+    margin: 2em auto;
+}
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: green;
+    cursor: move;
+}
+
+#results{
+    text-align: left;
+    font-size:20px;
+}
+
+
+
+#draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+.active{background:red !important; color:white !important; position: fixed;}
+.boxes{
+  width: 50%;
+-webkit-box-shadow: 0 10px 6px -6px #777;
+     -moz-box-shadow: 0 10px 6px -6px #777;
+          box-shadow: 0 10px 6px -6px #777;
+           border:1px solid;
+}
+
+.resultxy{
+box-shadow: 0px 3px 10px rgba(0,0,0,.8);
+width: 50%;
+    height: 504px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+     -moz-box-shadow: 0 10px 6px -6px #777;
+          box-shadow: 0 10px 6px -6px #777;
+          border:1px solid;
+}
+</style>
+
+</head>
+<body ng-app="myApp" ng-controller="docusign_controller">
+
+
+<br><br><br><br>
+
+
+
+<div class="container">
+  <center>
+    <h2>Calculate X and Y Coordinate Of Elements:</h2>
+    <br/>
+  </center>  
+  <div class="row">
+    <div class="col-md-6 boxes">
+      <h3>Boxes:</h3>
+      <div id="canvas">
+
+       </div>
+    </div>
+    <div class="col-md-6 resultxy">
+      <h3>X and Y Values:</h3>
+      <div id="results">
+        <ol start="1">
+          <li><p class="coordinate1"></p></li>
+          <li><p class="coordinate2"></p></li>
+          <li><p class="coordinate3"></p></li>
+          <li><p class="coordinate4"></p></li>
+        </ol>     
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- 
+        <pre>
+                <ul ng-repeat="details in obj" style="text-align: left; list-style: none;">
+                    <li>{{details.name}}</li>
+                    <li>{{details.email}}</li>
+                </ul>      
+        </pre> -->
+
+
+
+
+</body>
+<script type="text/javascript">
+
+
+    $(function() {
+    $( "#draggable" ).draggable();
+    $( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        $(ui.draggable).addClass('active');
+      }
+    });
+  });
+/*for (i = 0; i < 4; i++) { 
+    $("#canvas").append('<div id="box'+(i+1)+'" class="box"></div>');
+}
+
+var coordinates = function(element) {
+    console.log(element)
+    element = $(element);
+    var top = element.position().top;
+    var left = element.position().left;
+    $('#results .coordinate' + element.selector.replace("#box", "")).text('element'+ element.selector + ' --> X: ' + left + ' ' + 'Y: ' + top);
+   
+     
+}
+var $scope.obj = [
+  {name : "Kashif_1", email : "kashif1@gmail.com"},
+  {name : "Kashif_2", email : "kashif2@gmail.com"},
+  {name : "Kashif_3", email : "kashif3@gmail.com"},
+  {name : "Kashif_4", email : "kashif4@gmail.com"},
+  {name : "Kashif_5", email : "kashif5@gmail.com"}
+];
+
+
+var boxes = document.querySelectorAll('.box');
+console.log(boxes);
+
+boxes.forEach(function(box) {
+    var boxId = box.getAttribute('id');
+   $('#'+boxId).draggable({
+    start: function() {
+        coordinates('#'+boxId);
+    },
+    stop: function() {
+        coordinates('#'+boxId);
+    }
+});
+})*/
+
+
+
+</script>
+</html>
